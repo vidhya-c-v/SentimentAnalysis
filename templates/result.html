@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png');
+            background-color: #1c1c1c;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-size: cover;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            color: #ff4081;
+            font-size: 30px;
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+        }
+        p {
+            font-size: 18px;
+            color: #ffffffcc;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        .form-group label {
+            font-weight: 500;
+            color: #ffffff;
+        }
+        .form-control {
+            border-radius: 25px;
+            border: 1px solid #ddd;
+            padding: 12px 20px;
+            background-color: #ffffff1a;
+            color: #ffffff;
+            font-size: 16px;
+        }
+        .form-control:focus {
+            background-color: #ffffff33;
+            color: #ffffff;
+            border-color: #ff4081;
+            box-shadow: 0 0 5px #ff4081;
+        }
+        .btn-primary {
+            background-color: #ff4081;
+            border-color: #ff4081;
+            border-radius: 25px;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .btn-primary:hover {
+            background-color: #ff1a75;
+            border-color: #ff1a75;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1>Sentiment Analysis</h1>
+    <p>{{ sentiment_text }}</p>
+    <form action="/result" method="post">
+        <div class="form-group">
+            <label for="ticker">Enter Ticker Symbol:</label>
+            <input type="text" class="form-control" id="ticker" name="ticker" placeholder="e.g., AAPL" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Analyze</button>
+    </form>
+</div>
+
+</body>
+</html>
